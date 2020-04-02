@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>socket</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<script src="https://cdn.bootcss.com/socket.io/2.3.0/socket.io.js"></script>
+	<script>
+		window.onload = function () {
+			var socket = io.connect('http://127.0.0.1:8080')
+			socket.emit('msg', { 'state': 'success' })
+			socket.on('msg', function(data) {
+				console.log(data)
+				if(data.me) {
+					socket.emit('msg', { connection: 'good' })
+				}
+			})
+		}
+	</script>
+</body>
+</html>

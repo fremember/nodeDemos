@@ -1,0 +1,13 @@
+html
+	head
+		meta(charset="UTF-8")
+		title Node.js Update
+		link(rel="stylesheet", href="static/style.css")
+	body
+		div#main_container
+			div
+				form(enctype="multipart/form-data", action="upload", method="POST")
+					input(type="file", name="image")
+					span 图片名称
+					input(type="text", name="name")
+					input(type="submit", id="upload", value="上传图片")

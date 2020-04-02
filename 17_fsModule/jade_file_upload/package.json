@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "formidable": "^1.2.2",
+    "jade": "^1.11.0"
+  }
+}

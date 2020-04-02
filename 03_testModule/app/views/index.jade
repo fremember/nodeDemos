@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title #{title}
+    link(rel='stylesheet',type='text/css',href='../public/stylesheets/style.css')
+extends layout
+
+block content
+  .col
+    h1= title
+    p Welcome to #{title}
+
+    ul
+      - let items = ['one', 'two', 'three']
+      each item in items
+        li= item
+    div
+      - var bl0 = false
+      if bl0
+        p(id="pp1") this is an express
+      else
+        p(id="pp2") this is not an express
+
+    ul
+      - for(var i = 0; i < 3; i++)
+        li= 'for循环中的' + i
+
+    // script(src='/javascripts/index.js')
+    block script
+        script(type="text/javascript", src="/javascripts/index.js")

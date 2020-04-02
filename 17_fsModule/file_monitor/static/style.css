@@ -1,0 +1,42 @@
+#main_content{
+	width: 960px;
+	margin: 10px auto;
+	text-align: center;
+}
+#show_image{
+	display: none;
+}
+
+#upload{
+	width:140px;
+	height:36px;
+	line-height:36px;
+	font-size:18px;
+	background:url("bg26.jpg") no-repeat left top;
+	color:#FFF;
+	padding-bottom:0px;
+	background-position: 0% 0px;
+	border: none;
+	cursor: pointer;
+	text-align: center;
+	float:left;
+	margin-left: 450px;
+}
+
+#upload:hover{
+	background-position: 0% -36px;
+}
+
+a{
+	font-family:"Arial","Tahoma","微软雅黑","雅黑";
+	border:0px;
+	vertical-align:middle;
+	margin:2px;
+	line-height:18px;	
+	font-size:18px;
+	text-decoration: none;
+}
+img{
+	width: 200px;
+	height: 200px;
+}

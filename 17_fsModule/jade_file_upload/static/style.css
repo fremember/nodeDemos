@@ -1,0 +1,39 @@
+#main_content{
+	width: 960px;
+	margin: 10px auto;
+	text-align: center;
+}
+
+#show_image{
+	display: none;
+}
+
+#upload{
+	width:140px;
+	height:36px;
+	line-height:18px;
+	font-size:18px;
+	background:url("bg26.jpg") no-repeat left top;
+	color:#FFF;
+	padding-bottom:4px;
+	background-position: 0% 0px;
+	border: none;
+	cursor: pointer;
+}
+
+#upload:hover{
+	background-position: 0% -36px;
+}
+
+a{
+	font-family:"Arial","Tahoma","微软雅黑","雅黑";
+	border:0px;
+	vertical-align:middle;
+	margin:8px;
+	line-height:18px;	
+	font-size:18px;
+}
+img{
+	width: 200px;
+	height: 200px;
+}
