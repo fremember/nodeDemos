@@ -35,13 +35,22 @@
 // }
 
 // 导出的是构造函数
-// let Module = require('./module'),
-//     mod = new Module();
-// console.log(mod)
+let Module = require('./module'),
+    mod = new Module();
+console.log(Module)// [Function]
+console.log(mod)// { name: 'fremember', age: 29, sing: [Function] }
+console.log(mod.name)// fremember
+console.log(mod.age)// 29
+mod.sing()// 123
 
 // 导出的是对象
-// let mod = require('./module')
-// console.log(mod)
+/*let mod = require('./module')
+console.log(mod)// { name: 'fremember', age: 29, sing: [Function: sing] }
+console.log(mod.name)// fremember
+console.log(mod.age)// 29
+mod.sing()// 123*/
 
-let obj = require('./module')
-console.log(obj)
+/*let obj = require('./module')
+console.log(obj)// { sing: [Function], song: [Function] }
+obj.sing()// sing
+*/

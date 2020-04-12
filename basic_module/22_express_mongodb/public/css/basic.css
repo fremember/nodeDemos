@@ -1,0 +1,35 @@
+ul{
+    list-style-type: none;
+}
+.input-form li{
+    margin: 5px 0px;
+}
+.navbar-header{
+    width: 180px;
+    text-align: center;
+}
+.navbar-inverse .navbar-nav>li>a{
+    color:#f9f9f9;
+}
+.navbar-inverse{
+    background:#46473F;
+}
+input[type=file]{
+ display: inline !important;
+
+}
+.table > tbody > tr > td {
+    vertical-align: middle !important;
+}
+tr td > img {
+    height: 40px;
+}
+.input-form img {
+    width: 100px;
+}
+.input-form textarea {
+    text-align: left;
+}
+.input-form input {
+    width: 200px;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "fremember",// 包名称
+  "version": "1.0.0",// 版本号
+  "description": "My first module",// 描述
+  "main": "index.js",// 入口文件
+  "scripts": {// 命令行执行
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [// 关键字
+    "module"
+  ],
+  "author": "fremember",//作者
+  "license": "ISC"// 许可证
+}

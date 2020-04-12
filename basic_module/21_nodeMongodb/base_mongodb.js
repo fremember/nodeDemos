@@ -23,7 +23,6 @@ module.exports = function () {
                     callback(err)
                 } else {
                     callback(result)
-                    _db.close()
                 }
             })
         })
@@ -42,7 +41,6 @@ module.exports = function () {
                     callback(false)
                 } else {
                     callback(objects)
-                    _db.close()
                 }
             })
         })
@@ -63,7 +61,6 @@ module.exports = function () {
                     callback(false)
                 } else {
                     callback(true)
-                    _db.close()
                 }
             })
         })
@@ -83,7 +80,6 @@ module.exports = function () {
                     callback(false)
                 } else {
                     callback(true)
-                    _db.close()
                 }
             })
         })
