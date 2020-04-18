@@ -1,0 +1,21 @@
+include header
+	.span
+		div.navbar.navbar-inverse.navbar-fixed-top
+			div.navbar-inner
+				div.container
+					a.btn.btn-navbar(data-toggle="collapse",data-target=".nav-collapse")
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.brand(href="javascript:void(0)")  欢迎 #{user}
+					div.nav-collapse.collapse
+						ul.nav
+							li
+								a(href="javascript:void(0)")  注销
+each room in rooms
+	div.hero-unit.span3.offset1
+		h1 #{room.name}
+		p  #{room.desc}
+		p
+			a.btn.btn-primary.btn-large(href="/login/enterRoom/?room_id=#{room.id}") Enten In
+include footer

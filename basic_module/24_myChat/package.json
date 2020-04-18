@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "connect-redis": "^4.0.4",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "jade": "^1.11.0",
+    "mysql": "^2.18.1",
+    "redis": "^3.0.2",
+    "socket.io": "^2.3.0"
+  }
+}
