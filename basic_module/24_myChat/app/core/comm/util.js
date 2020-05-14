@@ -21,7 +21,7 @@ function getSource (fileName) {
 	}
 	let str = ''
 	try {
-		let str = lib.fs.readFileSync(fileName, 'utf8')
+		str = lib.fs.readFileSync(fileName, 'utf8')
 	} catch (e) {
 		str = ''
 	}

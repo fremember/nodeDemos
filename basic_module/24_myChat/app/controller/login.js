@@ -15,7 +15,6 @@ module.exports = function () {
 		lib.httpParam.POST('username', (value) => {
 			sessionLib.username = value
 			_res.render(`${VIEW}main.jade`, { 'user': value, 'rooms': room })
-
 		})
 		return
 	}
