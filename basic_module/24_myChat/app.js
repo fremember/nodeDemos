@@ -26,7 +26,6 @@ global.lib = {
     jade: require('jade'),
     socket: require('socket.io'),
     path: require('path'),
-    parseCookie: require(`${LIB}parseCookie`),
     session: require(`${LIB}nodeSession`),
     util: require('util'),
     config: require(`${CORE}comm/util`)
