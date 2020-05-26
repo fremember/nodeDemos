@@ -21,6 +21,7 @@ Router.post('/login', (req, res) => {
         if(ret) {// 这里需要加上token逻辑
             if(ret.length > 0) {
                 let data = ret[0]
+                delete data.password
                 res.cookie('userid', data._id)
                 let _id = data._id.toString(),
                     jwt = new JwtUtil(_id),// 将用户id传入并生成token

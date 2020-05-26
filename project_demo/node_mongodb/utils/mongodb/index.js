@@ -117,6 +117,17 @@ module.exports = function () {
             
         })
     }
+    this.findWithoutQuery = (tableName, callback) => {
+        connection((dbo, _db) => {
+            dbo.collection(tableName).find({}).toArray((err, res) => {
+                if(err) {
+                    callback(false)
+                } else {
+                    callback(res)
+                }
+            })
+        })
+    }
     /* 数据库连接构造函数 */
     function connection (callback) {
         if(!dbo) {

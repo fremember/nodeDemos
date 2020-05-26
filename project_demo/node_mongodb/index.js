@@ -6,7 +6,8 @@ let express = require('express'),
     server = require('http').Server(app),
     io = require('socket.io')(server);
 
-let userRouter = require('./routes/user')
+let userRouter = require('./routes/user'),
+	gameRouter = require('./routes/game');
 
 // 全局校验接口的token
 app.use((req, res, next) => {
@@ -28,6 +29,7 @@ app.use((req, res, next) => {
 app.use(cookieParser())
 app.use(bodyParser.json())
 app.use('/user', userRouter)
+app.use('/game', gameRouter)
 
 server.listen(1413, function() {
 	console.log('Node app start at port 1413')
