@@ -1,7 +1,6 @@
-const { query } = require('express');
-
 let express = require('express'),
     Router = express.Router(),
+    JwtUtil = require('./../../utils/jwt'),
     BaseMongodb = require('./../../utils/mongodb/index'),
     baseMongodb = new BaseMongodb(),
     status = require('./../../comment'),
@@ -22,7 +21,11 @@ Router.post('/login', (req, res) => {
         if(ret) {// 这里需要加上token逻辑
             if(ret.length > 0) {
                 let data = ret[0]
-                return res.json({ code: 0, message: '登录成功', data: data })
+                res.cookie('userid', data._id)
+                let _id = data._id.toString(),
+                    jwt = new JwtUtil(_id),// 将用户id传入并生成token
+                    token = jwt.generateToken();
+                return res.json({ code: 0, message: '登录成功', data: { ...data, token: token } })// 将 token 返回给客户端
             } else {
                 return res.json(status.code_2)
             }
