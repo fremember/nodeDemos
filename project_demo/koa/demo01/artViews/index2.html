@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .table{
+            width:100%;
+            border-collapse: collapse;
+        }
+        .table td,.table th{
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="/add">新增用户</a>
+    </div>
+    <table class="table">
+        <tr>
+            <th>姓名</th>
+            <th>ID</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        {{ each list }}
+        <tr>
+            <td>{{ $value.username }}</td>
+            <td>{{ $value._id }}</td>
+            <td>{{ $value.status }}</td>
+            <td><a href="/edit?id={{@ $value._id}}">编辑</a> 　<a href="/delete?id={{@ $value._id}}">删除</a></td>
+        </tr>
+        {{ /each }}
+    </table>
+</body>
+</html>

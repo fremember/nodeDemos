@@ -1,0 +1,112 @@
+@charset "UTF-8";
+.login-wrapper {
+    padding: 6px;
+    width: 380px;
+    background: #394557;
+}
+.login-wrapper .l-content {
+    background: #f7f7f7;
+}
+.login-content {
+    padding: 16px 36px;
+}
+.login-content .logo {
+    margin: 0 auto;
+    width: 50%;
+}
+.l-input-wrapper {
+    margin-top: 16px;
+    padding-top: 20px;
+    border-top: 1px dashed #d5e3ef
+}
+.l-input-wrapper .operate-type {
+    font-size: 20px;
+    width: 100px;
+    background-image: -webkit-linear-gradient(45deg , #c96, #428bca);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size: 200% 100%;
+}
+.l-input-wrapper li input {
+    padding-left: 36px;
+}
+.l-input-wrapper li input.password {
+    padding-right: 36px;
+}
+.l-input-wrapper li .iconfont {
+    position: absolute;
+    top: 12px;
+    color: #aaa;
+}
+.l-input-wrapper li .icon-my,
+.l-input-wrapper li .icon-lock {
+    left: 10px;
+}
+.l-input-wrapper li .icon-view {
+    right: 10px;
+}
+.l-input-wrapper li .icon-view:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 14px;
+    height: 1px;
+    background: #aaa;
+}
+.l-input-wrapper li .close-eye:after {
+    display: none;
+}
+.l-input-wrapper .code-input {
+    width: 45%;
+}
+.l-input-wrapper .code-input input {
+    padding-left: 10px;
+}
+.l-input-wrapper .code-img img {
+    border-radius: 4px;
+}
+.login-btn {
+    height: 40px;
+    line-height: 40px;
+    background: #428bca;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+.register-wrapper div {
+    line-height: 40px;
+    border-radius: 4px;
+    color: #fff;
+}
+.register-wrapper .reset-reg {
+    flex: 1;
+    background: #abbac3;
+}
+.register-wrapper .register,
+.register-wrapper .reset-pwd {
+    margin-left: 20px;
+    flex: 2;
+    background: #87b87f;
+}
+.login-footer {
+    padding: 0 6px;
+    border-top: 2px solid #597597;
+    background: #5090c1;
+}
+.login-footer div {
+    line-height: 40px;
+}
+.login-footer div:hover {
+    color: #fff;
+}
+.l-forget-pwd {
+    color: #FE9
+}
+.l-register {
+    color: #CF7;
+}
+.l-login {
+    color: #CF7;
+}

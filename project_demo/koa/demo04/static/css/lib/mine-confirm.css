@@ -1,0 +1,57 @@
+@charset "UTF-8";
+.mine-confirm-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0 , .5);
+}
+.mine-confirm-wrapper .mine-confirm-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+}
+.mine-confirm-content .mine-confirm-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: #303133;
+}
+.mine-confirm-content .mine-confirm-title span {
+    position: relative;
+    display: block;
+    width: 15px;
+    height: 15px;
+}
+.mine-confirm-content .mine-confirm-title span:before,
+.mine-confirm-content .mine-confirm-title span:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 1px;
+    background: #aaa;
+}
+.mine-confirm-content .mine-confirm-title span:before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+.mine-confirm-content .mine-confirm-title span:after {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.mine-confirm-content .mine-confirm-cont,
+.mine-confirm-content .mine-confirm-input {
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #606266;
+}
+.mine-confirm-content .mine-confirm-btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}

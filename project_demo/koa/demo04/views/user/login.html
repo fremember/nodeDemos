@@ -1,0 +1,123 @@
+{{ include './../common/header.html' }}
+<link rel="stylesheet" href="/css/user/login_register.css">
+{{ include './../common/header_sub.html' }}
+    <section class="container">
+        <div class="pos-f pos-center login-wrapper">
+            <div class="l-content">
+                <section class="login-content">
+                    <img src="/img/logo.png" alt="" class="db logo">
+                    <ul class="l-input-wrapper">
+                        <li class="m-auto tac mb20px operate-type">用户登录</li>
+                        <li class="pos-r mb20px username-wrapper">
+                            <i class="pos-a iconfont icon-my"></i>
+                            <input class="username" type="text" name="username" placeholder="用户名">
+                        </li>
+                        <li class="pos-r mb20px">
+                            <i class="pos-a iconfont icon-lock"></i>
+                            <input class="password" type="password" name="password" placeholder="密码">
+                            <i class="pos-a cur-p iconfont icon-view"></i>
+                        </li>
+                        <li class="pos-r mb20px confirm-password dn">
+                            <i class="pos-a iconfont icon-lock"></i>
+                            <input class="conf-pwd" type="password" name="confirm-password" placeholder="确认密码">
+                            <i class="pos-a cur-p iconfont icon-view"></i>
+                        </li>
+                        <li class="flex jc-s mb20px">
+                            <div class="code-input">
+                                <input class="imgcode" type="text" name="imgcode" placeholder="请输入图形验证码">
+                            </div>
+                            <div class="code-img">
+                                <img class="code" src="{{__ROOT__}}/user/code" alt="图形验证码">
+                            </div>
+                        </li>
+                        <li class="tac login-btn">登 录</li>
+                        <li class="flex ai-c jc-s register-wrapper dn">
+                            <div class="tac cur-p reset-reg">重置</div>
+                            <div class="tac cur-p register register-reset">注册</div>
+                            <div class="tac cur-p reset-pwd register-reset">重置密码</div>
+                        </li>
+                    </ul>
+                </section>
+                <footer class="flex ai-c jc-s login-footer">
+                    <div class="cur-p tac flex_1 l-forget-pwd">忘记密码</div>
+                    <div class="cur-p tac flex_1 l-register">注册</div>
+                    <div class="cur-p tac flex_1 l-login dn">登录</div>
+                </footer>
+            </div>
+        </div>
+    </section>
+    {{ include './../common/footer_sub.html' }}
+    <script>
+        // 重新获取图形验证码
+        $(function() {
+            function resetInput() {
+                $('.username').val('')
+                $('.password').val('')
+                $('.conf-pwd').val('')
+            }
+            resetInput()
+            $('.reset-reg').click(function () {// 重置输入内容
+                resetInput()
+            })
+            function refreshMsg () {
+                return '{{__ROOT__}}/user/code?t=' + Math.random() * 1000
+            }
+            $('.code-img .code').click(function () {// 重新获取图形验证码
+                $(this).attr('src', refreshMsg())
+            })
+            $('.l-login').click(function () {// 显示登录面板
+                $('.l-forget-pwd').removeClass('dn')
+                $('.l-register').removeClass('dn')
+                $('.login-btn').removeClass('dn')
+
+                $('.confirm-password').addClass('dn')
+                $('.register-wrapper').addClass('dn')
+                $('.l-login').addClass('dn')
+
+                resetInput()
+
+                $('.operate-type').html('用户登录')
+
+                $('.code-img .code').attr('src', refreshMsg())
+            })
+            $('.l-register').click(function () {// 显示注册面板
+                $('.l-forget-pwd').addClass('dn')
+                $('.l-register').addClass('dn')
+                $('.login-btn').addClass('dn')
+
+                $('.confirm-password').removeClass('dn')
+                $('.register-wrapper').removeClass('dn')
+                $('.l-login').removeClass('dn')
+
+                $('.reset-pwd').addClass('dn')
+                $('.register').removeClass('dn')
+
+                resetInput()
+
+                $('.operate-type').html('新用户注册')
+
+                $('.code-img .code').attr('src', refreshMsg())
+            })
+            $('.l-forget-pwd').click(function () {// 显示忘记密码面板
+                $('.l-forget-pwd').addClass('dn')
+                $('.l-register').addClass('dn')
+                $('.login-btn').addClass('dn')
+
+                $('.confirm-password').removeClass('dn')
+                $('.register-wrapper').removeClass('dn')
+                $('.l-login').removeClass('dn')
+
+                $('.reset-pwd').removeClass('dn')
+                $('.register').addClass('dn')
+
+                resetInput()
+
+                $('.operate-type').html('忘记密码')
+
+                $('.code-img .code').attr('src', refreshMsg())
+            })
+        });
+    </script>
+    <script src="/lib/sha256.js"></script>
+    <script src="/js/user/login.js"></script>
+{{ include './../common/footer.html' }}

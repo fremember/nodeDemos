@@ -1,0 +1,25 @@
+@charset "UTF-8";
+.user-add-panel {
+    padding: 20px 30px;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+.user-add-panel li:not(:last-child) {
+    margin-bottom: 20px;
+}
+.user-add-panel .label {
+    width: 100px;
+    color: #999;
+}
+.user-add-panel .input-wrapper {
+    width: 300px;
+}
+.user-add-panel .radio {
+    width: 24px;
+}
+.user-add-panel .radio:not(:nth-of-type(1)) {
+    margin-left: 30px;
+}
+.user-add-panel .query-btn-primary {
+    width: 400px;
+}

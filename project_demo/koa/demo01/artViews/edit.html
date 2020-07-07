@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit</title>
+</head>
+<body>
+    <form action="/doEdit" method="POST">
+        <input type="hidden" name="id" value="{{@list._id}}"/>
+        <p>
+            <label for="username">用户名</label>
+            <input type="text" name="username" id="username" placeholder="请输入用户名" value="{{list.username}}">
+        </p>
+        <p>
+            <label for="status">状态</label>
+            <input type="text" name="status" id="status" placeholder="请输入状态" value="{{list.status}}">
+        </p>
+        <p><button type="submit">提交</button></p>
+    </form>
+</body>
+</html>

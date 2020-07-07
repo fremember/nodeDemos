@@ -1,0 +1,35 @@
+{{ include './../common/header.html' }}
+<link rel="stylesheet" href="/css/user/index.css">
+<link rel="stylesheet" href="/css/lib/mine-confirm.css">
+{{ include './../common/header_sub.html' }}
+    <div class="container">
+        {{ include './../common/container/header.html' }}
+        {{ include './../common/container/menu.html' }}
+        <div class="main-container">
+            <ul class="flex jc-s ai-c query-panel">
+                <li class="flex ai-c">
+                    <div class="mr20px">
+                        <input class="username" type="text" placeholder="用户名">
+                    </div>
+                    <div class="mr20px">
+                        <input class="email" type="text" placeholder="邮件">
+                    </div>
+                    <div class="mr20px">
+                        <input class="phone" type="text" placeholder="手机号">
+                    </div>
+                    <div class="query-btn query-btn-primary search-btn">
+                        <i class="iconfont icon-search mr4px"></i>搜索
+                    </div>
+                </li>
+                <li>
+                    <a class="query-btn query-btn-primary" href="/user/add">
+                        <i class="iconfont icon-add-fill mr4px"></i>添加
+                    </a>
+                </li>
+            </ul>
+            <div class="table-panel"></div>
+        </div>
+    </div>
+    {{ include './../common/footer_sub.html' }}
+    <script src="/js/user/index.js"></script>
+{{ include './../common/footer.html' }}

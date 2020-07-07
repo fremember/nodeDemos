@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejs</title>
+</head>
+<body>
+    <div>{{ username }}</div>
+    <ul>
+        {{each list}}
+            <li>{{$index}}---{{$value}}</li>
+        {{/each}}
+    </ul>
+    <div>{{ bol ? 'abc' : 'def' }}</div>
+    <div>{{ htmlStr }}</div>
+    <div>{{@ htmlStr }}</div>
+</body>
+</html>

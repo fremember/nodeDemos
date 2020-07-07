@@ -1,0 +1,23 @@
+<%- include('common/header') -%>
+    <div>这是index页面，使用公共的数据<%= userinfo %></div>
+    <h1><%= msg %></h1>
+    <!-- 循环数据的方式一 -->
+    <ul>
+        <% for(let i = 0; i < menu.length; i++) { %>
+            <li><%= menu[i] %></li>
+        <% } %>
+    </ul>
+    <!-- 循环数据的方式二 -->
+    <ol>
+        <% menu.forEach(item => { %>
+            <li><%= item %></li>
+        <% }); %>
+    </ol>
+    <!-- 条件判断 -->
+    <!-- <div><% num > 24 ? '大于24' : '小于24'%></div> -->
+    <% if(num > 24) { %>
+        <div>大于24</div>
+    <% } else { %>
+        <div>小于24</div>
+    <% } %>
+<%- include('common/footer') -%>
