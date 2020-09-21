@@ -102,10 +102,10 @@ class Db {
             })
         })
     }
-    count (collectionName) {
+    count (collectionName, json) {
         return new Promise((resolve, reject) => {
             this.connect().then((db) => {
-                db.collection(collectionName).countDocuments({}, (err, count) => {
+                db.collection(collectionName).countDocuments(json, (err, count) => {
                     if(err) {
                         reject(err)
                     } else {

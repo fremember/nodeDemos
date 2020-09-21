@@ -43,7 +43,9 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-input {
+input[type="text"],
+input[type="password"],
+.div-input {
     border: 1px #aaa solid;
     border-radius: 4px;
     background: 0 0;
@@ -58,8 +60,6 @@ input {
 input:focus {
     border-color: #2468fa;
 }
-/* input.error,
-input.error:focus { */
 input.error {
     border-color: #ff5b5b;
 }

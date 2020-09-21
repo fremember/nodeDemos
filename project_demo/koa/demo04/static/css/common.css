@@ -71,6 +71,9 @@
 .ai-c {
     align-items: center;
 }
+.ai-s {
+    align-items: flex-start;
+}
 .jc-c {
     justify-content: center;
 }
@@ -160,6 +163,9 @@
 }
 .mb20px {
     margin-bottom: 20px;
+}
+.pl100px {
+    padding-left: 100px;
 }
 .container {
     position: relative;
@@ -279,6 +285,9 @@
     border-radius: 0 0 2px 2px;
 }
 .table-content li div {
+    padding: 0 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     line-height: 40px;
 }
 .table-content li div:not(:last-child) {

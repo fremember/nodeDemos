@@ -1,12 +1,29 @@
 {{ include './../common/header.html' }}
 <link rel="stylesheet" href="/css/user/index.css">
+<link rel="stylesheet" href="/css/lib/mine-confirm.css">
+<link rel="stylesheet" href="/css/lib/mine-paging.css">
 {{ include './../common/header_sub.html' }}
 <div class="container">
     {{ include './../common/container/header.html' }}
     {{ include './../common/container/menu.html' }}
     <div class="main-container">
-        <div>user-authority</div>
+        <div class="user-authority">
+            <span class="ua-info">说明：权限需要与角色相匹配，比如说：超级管理员具有所有权限，普通角色不具备新增管理员和新增用户的权限等。</span>
+            <ul class="flex ai-c jc-s">
+                <li>角色管理</li>
+                <li>
+                    <a class="query-btn query-btn-primary" href="/user/authadd">
+                        <i class="iconfont icon-add-fill mr4px"></i>添加
+                    </a>
+                </li>
+            </ul>
+            <div class="table-panel">
+                <div class="table-content"></div>
+                <div class="paging-wrapper"></div>
+            </div>
+        </div>
     </div>
-</div>
+{{ include './../common/footer_sub.html' }}
 <script src="/js/index.js"></script>
+<script src="/js/user/authority.js"></script>
 {{ include './../common/footer.html' }}

@@ -1,0 +1,33 @@
+{{ include './../common/header.html' }}
+<link rel="stylesheet" href="/css/user/index.css">
+{{ include './../common/header_sub.html' }}
+<div class="container">
+    {{ include './../common/container/header.html' }}
+    {{ include './../common/container/menu.html' }}
+    <div class="main-container">
+        <ul class="user-add-panel">
+            <li class="flex ai-c">
+                <label class="label" for="name">角色名称：</label>
+                <div class="input-wrapper">
+                    <input class="input name" id="name" mine-data="name" type="text" placeholder="请输入角色名称" />
+                </div>
+            </li>
+            <li class="flex ai-c">
+                <label class="label" for="remark">角色描述：</label>
+                <div class="input-wrapper">
+                    <input class="input remark" id="remark" mine-data="remark" type="text" placeholder="请输入角色描述" />
+                </div>
+            </li>
+            <li class="flex ai-s">
+                <label class="label" for="authority">选择权限：</label>
+                <div class="input-wrapper tree-wrapper">
+                    <div class="tac tree-header">跨系统权限设置</div>
+                    <div class="tree-content"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    {{ include './../common/footer_sub.html' }}
+    <script src="/lib/sha256.js"></script>
+    <script src="/js/user/authAdd.js"></script>
+    {{ include './../common/footer.html' }}

@@ -1,5 +1,6 @@
 @charset "UTF-8";
-.user-add-panel {
+.user-add-panel,
+.user-authority {
     padding: 20px 30px;
     border-radius: 2px;
     background: #f7f7f7;
@@ -8,11 +9,82 @@
     margin-bottom: 20px;
 }
 .user-add-panel .label {
-    width: 100px;
+    width: 70px;
+    font-size: 14px;
     color: #999;
 }
 .user-add-panel .input-wrapper {
-    width: 300px;
+    width: 400px;
+}
+.user-add-panel .input-wrapper .country-wrapper {
+    margin-right: 20px;
+    width: 80px;
+}
+.user-add-panel .input-wrapper .birthday-wrapper {
+    margin-right: 20px;
+    flex: 1;
+}
+.user-add-panel .input-wrapper .birthday-wrapper .div-input {
+    margin-right: 6px;
+}
+.user-add-panel .input-wrapper .birthday-wrapper:last-child {
+    margin-right: 0;
+}
+.user-add-panel .input-wrapper .birthday-wrapper .year-list,
+.user-add-panel .input-wrapper .birthday-wrapper .month-list,
+.user-add-panel .input-wrapper .birthday-wrapper .date-list,
+.user-add-panel .input-wrapper .country-wrapper .country-list {
+    top: 40px;
+    left: 0;
+    z-index: 999;
+    height: 280px;
+    overflow-y: auto;
+    border: 1px solid #aaa;
+    background: #fff;
+    border-radius: 4px;
+}
+.user-add-panel .input-wrapper .birthday-wrapper .year-list,
+.user-add-panel .input-wrapper .birthday-wrapper .month-list,
+.user-add-panel .input-wrapper .birthday-wrapper .date-list {
+    width: 98px;
+}
+.user-add-panel .input-wrapper .country-wrapper .country-list {
+    width: 400px;
+}
+.user-add-panel .input-wrapper .birthday-wrapper .year-list li,
+.user-add-panel .input-wrapper .birthday-wrapper .month-list li,
+.user-add-panel .input-wrapper .birthday-wrapper .date-list li,
+.user-add-panel .input-wrapper .country-wrapper .country-list li {
+    margin-bottom: 0;
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px dashed #aaa;
+    cursor: pointer;
+}
+.user-add-panel .input-wrapper .birthday-wrapper .year-list li.active,
+.user-add-panel .input-wrapper .birthday-wrapper .year-list li:hover,
+.user-add-panel .input-wrapper .birthday-wrapper .month-list li.active,
+.user-add-panel .input-wrapper .birthday-wrapper .month-list li:hover,
+.user-add-panel .input-wrapper .birthday-wrapper .date-list li.active,
+.user-add-panel .input-wrapper .birthday-wrapper .date-list li:hover,
+.user-add-panel .input-wrapper .country-wrapper .country-list li.active,
+.user-add-panel .input-wrapper .country-wrapper .country-list li:hover {
+    background: #2468fa;
+    color: #fff;
+}
+.user-add-panel .input-wrapper .birthday-wrapper .year-list li:first-child,
+.user-add-panel .input-wrapper .birthday-wrapper .month-list li:first-child,
+.user-add-panel .input-wrapper .birthday-wrapper .date-list li:first-child,
+.user-add-panel .input-wrapper .country-wrapper .country-list li:first-child {
+    border-radius: 4px 4px 0 0;
+}
+.user-add-panel .input-wrapper .birthday-wrapper .year-list li:last-child,
+.user-add-panel .input-wrapper .birthday-wrapper .month-list li:last-child,
+.user-add-panel .input-wrapper .birthday-wrapper .date-list li:last-child,
+.user-add-panel .input-wrapper .country-wrapper .country-list li:last-child {
+    border-radius: 0 0 4px 4px;
+    border-bottom: none;
 }
 .user-add-panel .radio {
     width: 24px;
@@ -22,4 +94,46 @@
 }
 .user-add-panel .query-btn-primary {
     width: 400px;
+}
+.user-authority .ua-info {
+    margin-bottom: 30px;
+    display: inline-block;
+    padding: 0 20px;
+    line-height: 24px;
+    font-size: 12px;
+    color: #f4b865;
+    border-radius: 2px;
+    background: rgba(247, 188, 108, .25);
+}
+
+.tree-wrapper {
+    border: 1px #aaa solid;
+    border-radius: 4px;
+    background: 0 0;
+    text-align: left;
+    font-size: 14px;
+    padding: 20px 10px;
+    width: 400px;
+    outline: none;
+}
+.pad-l20px {
+    padding-left: 20px;
+}
+.tree-wrapper p:not(:last-child),
+.tree-wrapper ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+.tree-wrapper ul li .minus-flag {
+    margin-right: 6px;
+    width: 14px;
+    cursor: pointer;
+}
+.tree-wrapper ul li .like-checkbox {
+    margin-right: 6px;
+    width: 14px;
+    height: 14px;
+    background: url('/img/check.png') no-repeat;
+    background-size: 100% 100%;
+    border-radius: 4px;
+    cursor: pointer;
 }

@@ -1,0 +1,78 @@
+@charset "UTF-8";
+.tree-wrapper {
+    border: 1px #aaa solid;
+    width: 400px;
+    height: 400px;
+    border-radius: 4px;
+}
+.tree-header {
+    text-align: center;
+    line-height: 50px;
+    color: #2468fa;
+}
+.tree-content {
+	margin: 0 auto;
+	width: 90%;
+	height: 332px;
+	overflow-y: auto;
+}
+.tree-content a {
+	text-decoration: none;
+	color: #2C8DFB;
+}
+.tree-content ul li {
+	list-style-type: none;
+	margin-left: 10px;
+	margin-bottom: 0 !important;
+	position: relative;
+}
+.tree-content input{cursor: pointer;}
+.tree-content span {
+	font-size: 13px;
+	cursor: pointer;
+	display: inline-block;
+	border: 1px solid #e2e2e2;
+	width: 10px;
+	line-height: 8px;
+	text-align: center;
+	height: 10px;
+	background-color: whitesmoke;
+	position: absolute;
+	left: 8px;
+	top: 4px;
+}
+.tree-content ul span{
+	left: -16px;
+}
+.tree-content ul {
+	width: 100%;
+	list-style-type: none;
+	margin-top: 0px;
+	position: relative;
+}
+.tree-content .label:hover{
+	box-shadow: 0 0 4px 0px #a0aefb;
+}
+.tree-content .label{
+	width: 18px;
+	height: 18px;
+	position: inherit;
+	top: 4px;
+	background-image: url('/img/check.png');
+	background-size: 100% 100%;
+	display: inline-block;
+	margin: 1px 5px 0 0;
+}
+.tree-content input:checked + label {
+	width: 19px;
+	height: 19px;
+	margin: 0 4px 0 0;
+	background-image: url('/img/checked.png');
+}
+.tree-content input{
+	display: none;
+}
+.tree-content .isShow{
+	width: 14px;
+	margin-right: 5px;
+}

@@ -1,5 +1,6 @@
 let router = require('koa-router')(),
     svgCaptcha = require('svg-captcha'),
+    arrFn = require('./../utils/arr_fn.js'),
     DB = require('./../../module/db.js'),
     utility = require('utility');
 function imgCodeError (ctx) {// 处理验证码过期的方法
@@ -34,7 +35,7 @@ router
         ctx.render('user/add')
     })
     .get('/getUserItem/:uid', async ctx => {
-        let queryObj = await DB.find('user', { uid: Number(ctx.params.uid), pageNum: 1, pageSize: 10 });
+        let queryObj = await DB.find('users', { uid: ctx.params.uid, pageNum: 1, pageSize: 2 });
         if (queryObj.length >= 0) {
             let data = { ...queryObj[0] }
             delete data.password
@@ -65,7 +66,7 @@ router
          * 2、根据用户名和密码，查询数据库，查询到数据，则登录成功，查询不到数据，则登录不成功
          */
         if(ctx.session.imgcode && imgcode.toLocaleLowerCase() == ctx.session.imgcode.toLocaleLowerCase()) {
-            let result = await DB.find('user', { username, password, pageNum: 1, pageSize: 10 }),
+            let result = await DB.find('users', { username, password, platform: 0, pageNum: 1, pageSize: 10 }),
                 res = {}
             if(result.length > 0) {
                 res.code = 0
@@ -91,7 +92,7 @@ router
          * 2、将用户名和密码写入表中，根据用户名和密码
          */
         if(ctx.session.imgcode && imgcode.toLocaleLowerCase() == ctx.session.imgcode.toLocaleLowerCase()) {
-            let queryRes = await DB.find('user', { username, pageNum: 1, pageSize: 10 }),
+            let queryRes = await DB.find('users', { username, platform: 0, pageNum: 1, pageSize: 10 }),
                 result = null,
                 res = {};
             if(queryRes.length > 0) {
@@ -99,7 +100,7 @@ router
                 res.data = null
                 res.message = '用户名重复'
             } else {
-                result = await DB.insert('user', { username, password })
+                result = await DB.insert('users', { username, password, platform: 0 })
                 if(result.result.ok >= 1) {
                     res.code = 0
                     res.data = null
@@ -124,7 +125,7 @@ router
          * 2、修改用户名为username的密码为password
          */
         if(ctx.session.imgcode && imgcode.toLocaleLowerCase() == ctx.session.imgcode.toLocaleLowerCase()) {
-            let queryRes = await DB.find('user', { username, pageNum: 1, pageSize: 10 }),
+            let queryRes = await DB.find('users', { username, platform: 0, pageNum: 1, pageSize: 10 }),
                 result = null,
                 res = {};
             if(queryRes.length == 0) {
@@ -132,7 +133,7 @@ router
                 res.data = null
                 res.message = `不存在${username}用户`
             } else {
-                result = await DB.update('user', { username }, { password })
+                result = await DB.update('users', { username, platform: 0 }, { password })
                 if(result.result.ok >= 1) {
                     res.code = 0
                     res.data = null
@@ -160,8 +161,11 @@ router
             if (json.id) {
                 json.id = Number(json.id)
             }
-            let queryObj = await DB.find('user', json),
-                count = await DB.count('user');
+            json.platform = 0
+            // 获取最后一条/最晚添加的数据
+            // 每一个文档都有一个ObjectId，而这个ObjectId是有带时间性质的，我们可以先按_id进行倒序排列
+            let queryObj = await DB.find('users', json, { _id: -1 }),
+                count = await DB.count('users', { platform: 0 });
             if (queryObj.length >= 0) {
                 let arr = queryObj
                 arr.forEach((v, i) => {
@@ -175,9 +179,9 @@ router
             ctx.body = { code: -1, data: null, message: 'token过期' }
         }
     })
-    .get('/delleteItem/:uid', async ctx => {
+    .get('/deleteItem/:uid', async ctx => {
         if (ctx.header.token === ctx.session.token) {
-            let del = await DB.remove('user', { uid: Number(ctx.params.uid) })
+            let del = await DB.remove('users', { uid: ctx.params.uid, platform: 0 })
             if (del.result.ok >= 1) {
                 ctx.body = { code: 0, data: null, message: '删除成功' }
             } else {
@@ -196,7 +200,7 @@ router
         }
         if (ctx.header.token === ctx.session.token) {
             let attr = Object.keys(ctx.request.body)[0],
-                queryObj = await DB.find('user', { ...ctx.request.body, pageNum: 1, pageSize: 10 });
+                queryObj = await DB.find('users', { ...ctx.request.body, platform: 0, pageNum: 1, pageSize: 10 });
             if (queryObj.length > 0) {
                 ctx.body = { code: -1, data: null, message: `${copywriting[attr]}已存在` }
             } else {
@@ -211,8 +215,9 @@ router
         data.sex = Number(data.sex)
         data.age = data.age ? Number(data.age): null
         data.status = Number(data.status)
-        data.uid = Number(await DB.count('user')) + 1// 这里需要修改
-        let result = await DB.insert('user', data),
+        data.platform = 0
+        data.uid = arrFn.randomNumber(8)
+        let result = await DB.insert('users', data),
             res = {};
         if (result.result.ok >= 1) {
             res.code = 0
@@ -224,6 +229,74 @@ router
             res.message = '添加用户失败'
         }
         ctx.body = res
+    })
+    .post('/doUpdate', async ctx => {
+        let data = { ...ctx.request.body }
+        data.sex = Number(data.sex)
+        data.age = data.age ? Number(data.age): null
+        data.status = Number(data.status)
+        data.platform = 0
+        let uid = data.uid
+        delete data.uid
+        let result = await DB.update('users', { uid: uid }, data),
+            res = {};
+        if (result.result.ok >= 1) {
+            res.code = 0
+            res.data = null
+            res.message = '用户信息修改成功'
+        } else {
+            res.code = -1
+            res.data = null
+            res.message = '用户信息修改失败'
+        }
+        ctx.body = res
+    })
+    .get('/authlist', async ctx => {
+        if (ctx.header.token === ctx.session.token) {
+            let json = {}
+            if (ctx.query) {
+                json = {
+                    ...ctx.query
+                }
+            }
+            if (json.id) {
+                json.id = Number(json.id)
+            }
+            // 获取最后一条/最晚添加的数据
+            // 每一个文档都有一个ObjectId，而这个ObjectId是有带时间性质的，我们可以先按_id进行倒序排列
+            let queryObj = await DB.find('authoritys', json, { _id: -1 }),
+                count = await DB.count('authoritys');
+            if (queryObj.length >= 0) {
+                let arr = queryObj
+                ctx.body = { code: 0, data: arr, total: count, message: '用户列表获取成功' }
+            } else {
+                ctx.body = { code: -1, data: null, message: '用户列表获取失败' }
+            }
+        } else {
+            ctx.body = { code: -1, data: null, message: 'token过期' }
+        }
+    })
+    .get('/authAdd', async ctx => {
+        ctx.render('user/authAdd')
+    })
+    .post('/authdoAdd', async ctx => {
+        if (ctx.header.token === ctx.session.token) {
+            let data = { ...ctx.request.body }
+        } else {
+            ctx.body = { code: -1, data: null, message: 'token过期' }
+        }
+    })
+    .get('/deleteAuthItem/:_id', async ctx => {
+        if (ctx.header.token === ctx.session.token) {
+            let del = await DB.remove('authoritys', { _id: DB.getObjectId(ctx.params._id) })
+            if (del.result.ok >= 1) {
+                ctx.body = { code: 0, data: null, message: '删除成功' }
+            } else {
+                ctx.body = { code: -1, data: null, message: '删除失败' }
+            }
+        } else {
+            ctx.body = { code: -1, data: null, message: 'token过期' }
+        }
     })
 
 module.exports = router.routes()
@@ -244,4 +317,13 @@ db.user.insert({
     status: 1
 })
 */
-// db.user.update( { "uid" : 2 } , { $set : { "phone" : "+86 18769567910"} } );
+// db.user.update( { "uid" : 2 } , { $set : { "phone" : "+86 1876956792"} } );
+/**
+ * 添加新角色
+db.authoritys.insert({
+    name: '系统管理员',
+    remark: '系统管理员拥有一切权利',
+    created: '2020-07-27 10:01:23',
+    modified: '2020-07-27 10:01:23'
+})
+ */

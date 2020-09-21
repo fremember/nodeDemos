@@ -1,6 +1,7 @@
 {{ include './../common/header.html' }}
 <link rel="stylesheet" href="/css/user/index.css">
 <link rel="stylesheet" href="/css/lib/mine-confirm.css">
+<link rel="stylesheet" href="/css/lib/mine-paging.css">
 {{ include './../common/header_sub.html' }}
     <div class="container">
         {{ include './../common/container/header.html' }}
@@ -27,7 +28,10 @@
                     </a>
                 </li>
             </ul>
-            <div class="table-panel"></div>
+            <div class="table-panel">
+                <div class="table-content"></div>
+                <div class="paging-wrapper"></div>
+            </div>
         </div>
     </div>
     {{ include './../common/footer_sub.html' }}

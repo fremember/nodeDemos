@@ -1,0 +1,97 @@
+@charset "UTF-8";
+.paging-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 0 20px;
+    font-size: 14px;
+}
+.paging-wrapper .paging-left {
+    display: flex;
+    align-items: center;
+}
+.mr20px {
+    margin-right: 20px;
+}
+.ml20px {
+    margin-left: 20px;
+}
+.div-input {
+    border: 1px #aaa solid;
+    border-radius: 4px;
+    background: 0 0;
+    text-align: left;
+    font-size: 14px;
+    padding: 0 10px;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+}
+.paging-wrapper .paging-right .paging-list .paging-item:first-child {
+    border-radius: 4px 0 0 4px;
+}
+.paging-wrapper .paging-right .paging-list .paging-item:last-child {
+    border-radius: 0 4px 4px 0;
+}
+.paging-wrapper .paging-right .paging-list .paging-item {
+    padding: 6px 12px;
+    border: 1px solid #aaa;
+    cursor: pointer;
+}
+.paging-wrapper .paging-right .paging-list .paging-item:not(:last-child) {
+    border-right: none;
+}
+.paging-wrapper .paging-right .paging-list .paging-item:hover,
+.paging-wrapper .paging-right .paging-list .paging-item.active {
+    background: #2468fa;
+    color: #fff;
+}
+.paging-wrapper .paging-right .size {
+    position: relative;
+    width: 100px;
+    text-align: center;
+}
+.paging-wrapper .paging-right .size .size-options {
+    position: absolute;
+    bottom: 28px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+.paging-wrapper .paging-right .size .size-options .size-item {
+    height: 28px;
+    line-height: 28px;
+    border-bottom: 1px solid #aaa;
+    cursor: pointer;
+}
+.paging-wrapper .paging-right .size .size-options .size-item:hover,
+.paging-wrapper .paging-right .size .size-options .size-item.active {
+    background: #2468fa;
+    color: #fff;
+}
+.paging-wrapper .paging-right .size .div-input {
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+}
+.paging-wrapper .paging-right .jumper {
+    display: flex;
+    align-items: center;
+}
+.paging-wrapper .paging-right .jumper input {
+    margin: 0 6px;
+    padding: 0 6px;
+    width: 80px;
+    height: 28px;
+    line-height: 28px;
+    outline: none;
+    border: 1px #aaa solid;
+    border-radius: 4px;
+}
+.paging-wrapper .paging-right .jumper input:focus {
+    border-color: #2468fa;
+}
