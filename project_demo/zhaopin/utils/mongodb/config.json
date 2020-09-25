@@ -1,0 +1,10 @@
+{
+	"db" : {
+		"host" : "127.0.0.1",
+		"port" : 27017,
+		"user" : "root",
+		"password" : "fremember",
+		"db_name" : "fremember",
+		"url": "mongodb://localhost:27017/fremember"
+	}
+}
