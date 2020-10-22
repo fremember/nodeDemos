@@ -21,6 +21,7 @@
     "mongodb": "^3.6.2",
     "nodemon": "^2.0.4",
     "socket.io": "^2.3.0",
+    "svg-captcha": "^1.4.0",
     "utility": "^1.16.3"
   }
 }
