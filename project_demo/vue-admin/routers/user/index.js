@@ -84,8 +84,14 @@ Router
         }
     })
     .post('/getUserInfo', (req, res) => {
-        console.log(req.headers.accesstoken)
         return res.json({ code: 0, message: '登录成功', data: { avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', username: 'admin', roleName: 'admin' } })
+    })
+    .post('/getUserList', (req, res) => {
+        let data = { ...req.body }
+        return res.json({ code: 0, message: '数据获取成功', data: {
+            list: [{ name: 'pxy', age: 29 }],
+            total: 100
+        } })
     })
 
 
