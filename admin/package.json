@@ -1,0 +1,18 @@
+{
+  "name": "admin",
+  "version": "1.0.0",
+  "description": "node+express构建后段服务系统",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "fremember",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
