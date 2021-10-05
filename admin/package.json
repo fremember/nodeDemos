@@ -4,6 +4,7 @@
   "description": "node+express构建后段服务系统",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,6 +14,15 @@
   "author": "fremember",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "formidable": "^1.2.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.1.2",
+    "nodemon": "^2.0.12",
+    "socket.io": "^4.2.0",
+    "svg-captcha": "^1.4.0",
+    "utility": "^1.17.0"
   }
 }
