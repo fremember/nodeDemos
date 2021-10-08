@@ -144,7 +144,28 @@ Router
                 parentArr.forEach((item, index) => {
                     parentArr[index].children = childrenArr.filter(itm => itm.parent === item.name)
                 })
-                return res.json({ code: 0, msg: '前端路由查询成功', data: parentArr })
+                let noChildren = [],
+                    hasChildren = [];
+                // 排序，将没有子路由的放在最前面，并且将首页放在第一个
+                parentArr.forEach(item => {
+                    if(item.children && item.children.length > 0) {
+                        hasChildren.push(item)
+                    } else {
+                        noChildren.push(item)
+                    }
+                })
+                let _index = -1,
+                    _temp = null;
+                noChildren.forEach((item, index) => {
+                    if (item.name === 'dashboard') {
+                        _index = index
+                    }
+                })
+                _temp = noChildren[_index]
+                noChildren.splice(_index, 1)
+                noChildren.unshift(_temp)
+
+                return res.json({ code: 0, msg: '前端路由查询成功', data: [ ...noChildren, ...hasChildren ] })
             } else {
                 return res.json(status.code_9)
             }
