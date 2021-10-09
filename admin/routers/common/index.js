@@ -26,7 +26,7 @@ Router
         res.cookie('randomcode', encry.md5(code.text.toLowerCase()))
         return res.json({ code: 0, data: code.data, message: '验证码获取成功' })
     })
-    .get('/checkUsername', (req, res) => {
+    .get('/checkUsername', (req, res) => {// 注册新用户时，校验唯一性
         let whereJson = { ...req.query },
             orderByJson = {},
             limitJson = {
@@ -42,7 +42,7 @@ Router
             }
         })
     })
-    .post('/register', (req, res) => {
+    .post('/register', (req, res) => {// 注册新用户
 
         let { username, userpwd, verificationCode } = req.body,
             { randomcode } = req.cookies;
@@ -111,7 +111,7 @@ Router
             { cookieToken } = req.cookies;
         if (token === cookieToken) {
             res.clearCookie('cookieToken')
-            return res.send({ code: 0, msg: '退出成功' })
+            return res.send({ code: 0, msg: '退出成功', data: true })
         } else {
             return res.send(status.code_8)
         }
